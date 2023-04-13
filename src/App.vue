@@ -9,10 +9,17 @@ import NavCom from '@/components/NavCom.vue';
 </script>
 
 <style lang="scss">
+:root{
+	--window-scale: 1;
+	--window-video: 2;
+	--window-navbar: 3;
+}
+
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	// font-family: Avenir, Helvetica, Arial, sans-serif;
+	// -webkit-font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+	font-family: "Proxima Nova Bold";
 	text-align: center;
 	color: #2c3e50;
 }
@@ -28,5 +35,13 @@ nav {
 			color: #42b983;
 		}
 	}
+}
+
+html{
+	font-family: "Proxima Nova Bold";
+}
+
+body{
+	background-color: #E5E5E5 !important;
 }
 </style>
