@@ -1,11 +1,15 @@
 <template>
     <div ref="componentParent" class="container abort-container">
         <h4 class="row title">ABOUT DIGISALAD</h4>
-        <h4 class="wave">----</h4>
+        <h4 class="wave"></h4>
         <div class="row video-container">
             <VideoCom :src="videoSrc"></VideoCom>
         </div>
-        <h6 class="row">Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.</h6>
+        <div class="row">
+            <h5 class="col-8 offset-2 info">
+                Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
+            </h5>
+        </div>
         <div class="more">
             <span>VIEW MORE</span>
         </div>
@@ -23,13 +27,13 @@ onMounted(() => {
     console.log('window.clientHeight = ', window.innerHeight);
     console.log('componentParent = ', componentParent.value.offsetHeight);
 
-    componentParent.value.style.height = window.innerHeight + 'px';
+    Resize();
 
     window.addEventListener('resize', Resize);
 });
 
 function Resize(){
-    componentParent.value.style.height = window.innerHeight + 'px';
+    componentParent.value.style.height = window.innerHeight * 1.3 + 'px';
 }
 </script>
 
@@ -43,26 +47,29 @@ function Resize(){
 }
 
 .row.title{
+    position: relative;
     margin-bottom: 0px;
 
     &.title:after{
-        font-size: 34px;
+        font-size: 50px;
         color: #ee6c8a;
         content: ".";
+        position: absolute;
+        right: -10%;
+        bottom: -6px;
     }
 }
 
-.wave{
-    color: #26C6D0;
-}
-
 .video-container{
-    width: 960px;
-    height: 544px;
+    width: 67%;
+    height: 35%;
+    margin-top: 9%;
 }
 
 .info{
-    width: 960px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 0px;
 }
 
 .more{
@@ -78,7 +85,7 @@ function Resize(){
 
     span{
         position: absolute;
-        left: 18%;
+        left: 15%;
     }
     span:after{
         content: "";

@@ -44,4 +44,12 @@ html{
 body{
 	background-color: #E5E5E5 !important;
 }
+
+.wave{
+    color: #26C6D0;
+    border: 3px solid #26C6D0;
+    width: 360px;
+    height: 5px;
+    background: #26C6D0;
+}
 </style>
