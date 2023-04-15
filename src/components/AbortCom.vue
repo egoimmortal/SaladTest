@@ -1,7 +1,10 @@
 <template>
-    <div ref="componentParent" class="container abort-container">
-        <h4 class="row title">ABOUT DIGISALAD</h4>
-        <h4 class="wave"></h4>
+    <div class="container abort-container" :style="{'height': props.AbortComHeight}">
+        <h4 class="row title pink-dot">ABOUT DIGISALAD</h4>
+        <div style="display: flex;flex-direction: row;">
+            <h4 class="wave"></h4>
+            <h4 class="wave"></h4>
+        </div>
         <div class="row video-container">
             <VideoCom :src="videoSrc"></VideoCom>
         </div>
@@ -18,23 +21,12 @@
 
 <script lang="ts" setup>
 import VideoCom from '@/components/VideoCom.vue';
-import { onMounted, ref } from 'vue';
+import { ref, defineProps } from 'vue';
 
-const componentParent = ref();
 const videoSrc = ref('https://www.youtube.com/embed/IeIRJ9jZ5Ro?rel=0&enablejsapi=1&widgetid=1');
-
-onMounted(() => {
-    console.log('window.clientHeight = ', window.innerHeight);
-    console.log('componentParent = ', componentParent.value.offsetHeight);
-
-    Resize();
-
-    window.addEventListener('resize', Resize);
-});
-
-function Resize(){
-    componentParent.value.style.height = window.innerHeight * 1.3 + 'px';
-}
+const props = defineProps<{
+    AbortComHeight: string
+}>();
 </script>
 
 <style lang="scss" scoped>
@@ -49,15 +41,6 @@ function Resize(){
 .row.title{
     position: relative;
     margin-bottom: 0px;
-
-    &.title:after{
-        font-size: 50px;
-        color: #ee6c8a;
-        content: ".";
-        position: absolute;
-        right: -10%;
-        bottom: -6px;
-    }
 }
 
 .video-container{
