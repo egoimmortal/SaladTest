@@ -45,10 +45,19 @@ body{
 	background-color: #E5E5E5 !important;
 }
 
+.pink-dot:after{
+	font-size: 50px;
+	color: #ee6c8a;
+	content: ".";
+	position: absolute;
+	right: -10%;
+	bottom: -6px;
+}
+
 .wave{
     color: #26C6D0;
     border: 3px solid #26C6D0;
-    width: 360px;
+    width: 180px;
     height: 5px;
     background: #26C6D0;
 }
