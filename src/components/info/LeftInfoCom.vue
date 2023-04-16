@@ -1,5 +1,5 @@
 <template>
-    <div class="left-info-parent" :style="{'width': props.props.infoWidth, 'height': props.props.infoHeight, 'top': top}">
+    <div class="left-info-parent" :style="{'width': props.props.infoWidth, 'height': props.props.infoHeight, 'top': props.props.productComTop}">
         <div class="row">
             <div class="col-4 left-side">
                 <img src="@/assets/img10.png" />
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref, watch } from 'vue';
+import { defineProps } from 'vue';
 
 const props = defineProps<{
     props:{
@@ -31,12 +31,6 @@ const props = defineProps<{
         productComTop: string
     }
 }>();
-const top = ref('0px');
-
-watch(() => props.props.infoHeight, () => {
-    let productTop = parseInt(props.props.productComTop.split('px')[0]);
-    top.value = -parseInt(props.props.infoHeight.split('px')[0]) / 2 + productTop + 'px';
-})
 </script>
 
 <style lang="scss" scoped>
