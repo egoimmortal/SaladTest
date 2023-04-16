@@ -1,5 +1,5 @@
 <template>
-    <div ref="componentParent" class="right-info-parent" :style="{'width': props.props.rightInfoWidth, 'height': props.props.rightInfoHeight}">
+    <div class="right-info-parent" :style="{'width': props.props.infoWidth, 'height': props.props.infoHeight}">
         <div class="row">
             <div class="col-4 left-side offset-1">
                 <div class="title pink-dot">
@@ -30,8 +30,8 @@ import { defineProps } from 'vue';
 
 const props = defineProps<{
     props:{
-        rightInfoWidth: string,
-        rightInfoHeight: string
+        infoWidth: string,
+        infoHeight: string
     }
 }>();
 </script>
