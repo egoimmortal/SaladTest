@@ -6,6 +6,7 @@
 		<ProductCom :ProductComData="ProductComData"></ProductCom>
 		<LeftInfoCom :props="LeftInfoComData"></LeftInfoCom>
 		<CooperateCom :CooperateData="CooperateComData"></CooperateCom>
+		<ProductDetailCom :PoductDetialComData="PoductDetialComData"></ProductDetailCom>
 	</div>
 </template>
 
@@ -16,6 +17,7 @@ import RightInfoCom from '@/components/info/RightInfoCom.vue';
 import ProductCom from '@/components/ProductCom.vue';
 import LeftInfoCom from '@/components/info/LeftInfoCom.vue';
 import CooperateCom from '@/components/CooperateCom.vue';
+import ProductDetailCom from '@/components/ProductDetailCom.vue';
 
 import { onMounted, ref } from 'vue';
 
@@ -25,6 +27,7 @@ const RightInfoComData = ref<{infoWidth: string, infoHeight: string}>({infoWidth
 const ProductComData = ref<{productComHeight: string, productComTop: string}>({productComHeight: '0px',productComTop: '0px'});
 const LeftInfoComData = ref<{infoWidth: string, infoHeight: string, productComTop: string}>({infoWidth: '0px',infoHeight: '0px', productComTop: '0px'});
 const CooperateComData = ref<{CooperateComHeight: string, productComTop: string}>({CooperateComHeight: '0px', productComTop: '0px'});
+const PoductDetialComData = ref<{PoductDetialComHeight: string, productComTop: string}>({PoductDetialComHeight: '0px', productComTop: '0px'});
 
 onMounted(() => {
 	Resize();
@@ -38,6 +41,7 @@ function Resize(){
 	let productComHeight = window.innerHeight * 2.3 + 'px';
 	let productComTop = window.innerHeight * 0.2 + 'px';
 	let CooperateComHeight = window.innerHeight * 1.5 + 'px';
+	let PoductDetialComHeight = window.innerHeight * 1.5 + 'px';
 
 	AbortComHeight.value = window.innerHeight * 1.3 + 'px';
 
@@ -65,7 +69,12 @@ function Resize(){
 	CooperateComData.value = {
 		CooperateComHeight,
 		productComTop
-	}
+	};
+
+	PoductDetialComData.value = {
+		PoductDetialComHeight,
+		productComTop
+	};
 }
 </script>
 
