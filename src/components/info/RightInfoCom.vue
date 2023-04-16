@@ -45,6 +45,17 @@ div{
     width: 100%;
 }
 
+.right-info-parent{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px 0px 30px 30px;
+    background-color: #FFFFFF;
+    z-index: var(--window-info);
+}
+
 .left-side{
     display: flex;
     justify-content: flex-start;
@@ -59,15 +70,5 @@ div{
 .content{
     text-align: left;
     margin-top: 31px;
-}
-
-.right-info-parent{
-    position: absolute;
-    right: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 30px 0px 30px 30px;
-    background-color: #FFFFFF;
 }
 </style>
