@@ -1,6 +1,6 @@
 <template>
     <div>
-        <iframe ref="video" :src="props.src"
+        <iframe :src="props.src"
             title="DigiSalad Website Video-v3"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
+import { defineProps } from 'vue';
 const props = defineProps<{
     src: string
 }>();

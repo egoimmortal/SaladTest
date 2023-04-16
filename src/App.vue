@@ -1,11 +1,25 @@
 <template>
-	<NavCom></NavCom>
+	<NavCom @OpenFullInfo="OpenFullInfo" @CloseFullInfo="CloseFullInfo"></NavCom>
 	<router-view/>
+	<InfoFullCom :show="fullInfoPageShow"></InfoFullCom>
 </template>
 
 <script lang="ts" setup>
 import NavCom from '@/components/NavCom.vue';
+import InfoFullCom from './components/info/InfoFullCom.vue';
+import { ref } from 'vue';
 
+const fullInfoPageShow = ref(false);
+
+const OpenFullInfo = () => {
+	console.log('app OpenFullInfo');
+	fullInfoPageShow.value = true;
+};
+
+const CloseFullInfo = () => {
+	console.log('app CloseFullInfo');
+	fullInfoPageShow.value = false;
+};
 </script>
 
 <style lang="scss">
@@ -14,7 +28,8 @@ import NavCom from '@/components/NavCom.vue';
 	--window-page: 1;
 	--window-info: 2;
 	--window-video: 3;
-	--window-navbar: 4;
+	--window-full-info-page: 4;
+	--window-navbar: 5;
 }
 
 #app {

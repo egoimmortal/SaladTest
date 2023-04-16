@@ -1,29 +1,31 @@
 <template>
     <nav class="navbar" :class="{'block': !navTop}">
 		<div class="container-fluid">
-			<div class="left-side">
-				<img src="@/assets/logo2.png" />
-			</div>
+			<div class="left-side" :class="{'open': !fullInfo, 'close': fullInfo}"></div>
 			<div class="right-side">
-				<div class="info">
+				<div class="info" :class="{'open': !fullInfo, 'close': fullInfo}">
 					<span>
 						START YOUR PROJECT
 					</span>
 				</div>
-				<div class="menu">
+				<div class="menu" :class="{'open': !fullInfo, 'close': fullInfo}" @click="openFullInfo">
 					<div></div>
 					<div></div>
 					<div></div>
 				</div>
+				<div class="closeFullInfo" :class="{'open': fullInfo, 'close': !fullInfo}" @click="closeFullInfo"></div>
 			</div>
 		</div>
     </nav>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch, defineEmits } from 'vue';
 
 const navTop = ref(true);
+const fullInfo = ref(false);
+const emit = defineEmits(['OpenFullInfo', 'CloseFullInfo']);
+
 onMounted(() => {
 	window.addEventListener('scroll', OnScroll);
 })
@@ -41,6 +43,16 @@ function OnScroll(){
 		navTop.value = true;
 	else
 		navTop.value = false;
+}
+
+function openFullInfo(){
+	fullInfo.value = true;
+    emit('OpenFullInfo');
+}
+
+const closeFullInfo = () => {
+	fullInfo.value = false;
+    emit('CloseFullInfo');
 }
 </script>
 
@@ -66,6 +78,15 @@ nav {
 	.left-side{
 		position: relative;
 		left: 5%;
+		height: 90%;
+
+		&.open{
+			content: url('@/assets/logo2.png');
+		}
+
+		&.close{
+			content: url('@/assets/logo3.png');
+		}
 	}
 
 	.right-side{
@@ -109,7 +130,7 @@ nav {
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: flex-end;
-			background: #FFFFFF !important;
+			background: #FFFFFF00 !important;
 
 			*{
 				color:#414042 !important;
@@ -122,6 +143,33 @@ nav {
 			*:last-child{
 				width: 26px;
 			}
+		}
+
+		.closeFullInfo{
+			&:before{
+				content: '';
+				height: 30px;
+				border-left: 2px solid #fff;
+				position: absolute;
+				transform: rotate(-45deg);
+				left: 28px;
+			}
+			&:after{
+				content: '';
+				height: 30px;
+				border-left: 2px solid #fff;
+				position: absolute;
+				transform: rotate(45deg);
+				left: 28px;
+			}
+		}
+
+		.open{
+			display: flex;
+		}
+
+		.close{
+			display: none;
 		}
 	}
 }
