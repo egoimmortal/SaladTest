@@ -11,8 +11,10 @@ import NavCom from '@/components/NavCom.vue';
 <style lang="scss">
 :root{
 	--window-scale: 1;
-	--window-video: 2;
-	--window-navbar: 3;
+	--window-page: 1;
+	--window-info: 2;
+	--window-video: 3;
+	--window-navbar: 4;
 }
 
 #app {
